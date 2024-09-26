@@ -1,5 +1,6 @@
 # CakeHub Bypass
 #### This is still in **PROTOTYPE**, so if anyone found errors, report in [GitHub Issue link](https://github.com/Quanvm0501alt1/CakeBypass1/issues) and thanks u for support me!
+[Join me on Bot-hosting!](https://bot-hosting.net/?aff=1285860403007586366)
 ![how to go to prototype branch](https://raw.githubusercontent.com/Quanvm0501alt1/CakeBypass1/refs/heads/prototype/pictures.bmp)
 How to use:
 1. Go to https://python.org to install Python
