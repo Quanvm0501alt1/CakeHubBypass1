@@ -70,6 +70,17 @@ def str_return_mode(api):
 		2: Relz Hub
 		3: Delta
 		0: Change API""")
+	elif api == 4:
+		print("""
+		1: Fluxus
+		2: CodeX
+		3: Delta
+		4: Work.ink
+		5: Rekonise
+		6: Mediafire
+		7: Arceus X
+		8: Linkvertise
+		0: Change API""")
 	mode = int(input("Type mode: "))
 	if mode == 0:
 		return 0
@@ -190,14 +201,14 @@ def zaneru(mode, link):
 			# Decode bytes to string and remove the leading 'b' character
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
-	if mode == 2:
+	elif mode == 2:
 		url = f"https://zaneru-official.vercel.app/api/bypass/relzhub?link={link}&api_key=zaneru-official"
 		with urllib.request.urlopen(url) as response:
 			html = response.read()
 			# Decode bytes to string and remove the leading 'b' character
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
-	if mode == 3:
+	elif mode == 3:
 		url = f"https://zaneru-official.vercel.app/api/bypass/delta?link={link}&api_key=zaneru-official"
 		with urllib.request.urlopen(url) as response:
 			html = response.read()
@@ -206,9 +217,64 @@ def zaneru(mode, link):
 			print("Key:",dictionary['key'])
 
 def prince(api,mode,link):
-	pass
+	if mode == 1:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/fluxus?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 2:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/codex?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 3:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/delta?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 4:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/workink?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 5:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/rekonise?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 6:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/mediafire?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 7:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/arceusx?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 8:
+		url = f"https://prince-mysticmoth-api.vercel.app/api/linkvertise?link={link}&apikey=Triple_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
 
-def bypass(mode, link):
+def bypass(api, mode, link):
 	if api == 0:
 		duck(mode, link)
 	elif api == 1:
@@ -220,8 +286,7 @@ def bypass(mode, link):
 	elif api == 4:
 		prince(mode,link)
 
-
-def main():
+def built_in_bypass():
 	dev_dict = is_developer(input("Type your developer key: "))
 	api = change_apis(dev_dict["is_developer"])
 	while True:
@@ -240,7 +305,8 @@ def main():
 		print(e)
 	else:
 		bypass(api, mode,link)
-	# finally:
-		# pass
+	return
+def main():
+	built_in_bypass()
 if __name__ == '__main__':
 	main()
