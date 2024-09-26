@@ -1,0 +1,21 @@
+Net Api!!
+
+Bypass endpoint
+
+httpsnet-api-one.vercel.appnetbypassurl=
+
+Supports endpoint
+
+httpsnet-api-one.vercel.appnetsupported
+
+Main endpoint
+
+httpsnet-api-one.vercel.app
+
+Proxie endpoint
+
+httpsnet-api-one.vercel.appnetproxie
+
+Ai endpoint
+
+httpsnet-api-one.vercel.appnetaiprompt=
