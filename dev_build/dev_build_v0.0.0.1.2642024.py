@@ -14,6 +14,7 @@ def is_developer(dev_key):
 	conel_dev_key = "c3RpY2t4bmV2ZXJkaWU="
 	bypassvip_dev_key = "YnlwYXNzLnZpcG5ldmVyZGll"
 	zaneru_dev_key = "emFuZXJ1b2ZmaWNpYWxuZXZlcmRpZQ=="
+	prince_api_key = "cHJpbmNlYXBpbmV2ZXJkaWU="
 	api = 0
 	is_developer = False
 	dev_mode = 0
@@ -26,6 +27,18 @@ def is_developer(dev_key):
 		is_developer = True
 		print("You are a developer now!")
 		dev_mode = 2
+	elif dev_key == base64.b64decode(bypassvip_dev_key).decode('utf-8'):
+		is_developer = True
+		print("You are a developer now!")
+		dev_mode = 3
+	elif dev_key == base64.b64decode(zaneru_dev_key).decode('utf-8'):
+		is_developer = True
+		print("You are a developer now!")
+		dev_mode = 4
+	elif dev_key == base64.b64decode(prince_api_key).decode('utf-8'):
+		is_developer = True
+		print("You are a developer now!")
+		dev_mode = 5
 	return {"is_developer": is_developer, "dev_mode": dev_mode}
 
 def str_return_mode(api):
@@ -71,11 +84,11 @@ def change_apis(is_developer):
 	2: Bypass.vip API
 	3: Zaneru Bypass API
 	4: Prince API (Comming Soon)
-	5: Cryzo (Will have API Soon) (Comming Soon)
+	5: Cryzo (Comming Soon)
 	6: XKeyPass (Comming Soon)
 	""")
 	api = int(input("Type API: "))
-	if api == 4 or api == 5 or api == 6:
+	if api == 5 or api == 6:
 		if is_developer == False:
 			print("You are not a developer!")
 		else:
@@ -192,6 +205,21 @@ def zaneru(mode, link):
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
 
+def prince(api,mode,link):
+	pass
+
+def bypass(mode, link):
+	if api == 0:
+		duck(mode, link)
+	elif api == 1:
+		stickx(mode, link)
+	elif api == 2:
+		bypassvip(mode, link)
+	elif api == 3:
+		zaneru(mode, link)
+	elif api == 4:
+		prince(mode,link)
+
 
 def main():
 	dev_dict = is_developer(input("Type your developer key: "))
@@ -211,16 +239,7 @@ def main():
 	except Exception as e:
 		print(e)
 	else:
-		if api == 0:
-			duck(mode, link)
-		elif api == 1:
-			stickx(mode, link)
-		elif api == 2:
-			bypassvip(mode, link)
-		elif api == 3:
-			zaneru(mode, link)
-
-
+		bypass(api, mode,link)
 	# finally:
 		# pass
 if __name__ == '__main__':
