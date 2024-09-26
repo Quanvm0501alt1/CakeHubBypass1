@@ -12,6 +12,8 @@ class NoHWIDOrTokenKey(Error):
 def is_developer(dev_key):
 	owner_dev_key = "aGlwaG9wbmV2ZXJkaWU="
 	conel_dev_key = "c3RpY2t4bmV2ZXJkaWU="
+	bypassvip_dev_key = "YnlwYXNzLnZpcG5ldmVyZGll"
+	zaneru_dev_key = "emFuZXJ1b2ZmaWNpYWxuZXZlcmRpZQ=="
 	api = 0
 	is_developer = False
 	dev_mode = 0
@@ -45,6 +47,16 @@ def str_return_mode(api):
 		7: Vega X
 		0: Change API
 		""")
+	elif api == 2:
+		print("""
+		1: Adlink
+		0: Change API""")
+	elif api == 3:
+		print("""
+		1: Fluxus
+		2: Relz Hub
+		3: Delta
+		0: Change API""")
 	mode = int(input("Type mode: "))
 	if mode == 0:
 		return 0
@@ -56,10 +68,14 @@ def change_apis(is_developer):
 	print("""
 	0: Duck API (DEFAULT) 
 	1: StickX API
-	2: Bypass.vip API (Dev)
+	2: Bypass.vip API
+	3: Zaneru Bypass API
+	4: Prince API (Comming Soon)
+	5: Cryzo (Will have API Soon) (Comming Soon)
+	6: XKeyPass (Comming Soon)
 	""")
 	api = int(input("Type API: "))
-	if api == 3:
+	if api == 4 or api == 5 or api == 6:
 		if is_developer == False:
 			print("You are not a developer!")
 		else:
@@ -143,6 +159,19 @@ def stickx(mode, link):
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
 
+def bypassvip(mode, link):
+	if mode == 1:
+		url = f"https://api.bypass.vip/bypass?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+
+
+def zaneru(mode, link):
+	pass
+
 def main():
 	dev_dict = is_developer(input("Type your developer key: "))
 	api = change_apis(dev_dict["is_developer"])
@@ -163,6 +192,12 @@ def main():
 	else:
 		if api == 0:
 			duck(mode, link)
+		elif api == 1:
+			stickx(mode, link)
+		elif api == 2:
+			bypassvip(mode, link)
+		elif api == 3:
+			zaneru(mode, link)
 
 
 	# finally:
