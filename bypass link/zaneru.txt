@@ -1,0 +1,3 @@
+https://zaneru-official.vercel.app/api/bypass/fluxus?link={Your Link Fluxus}&api_key=zaneru-official
+https://zaneru-official.vercel.app/api/bypass/relzhub?link={Your Link Relz}&api_key=zaneru-official
+https://zaneru-official.vercel.app/api/bypass/delta?link={Your Link Delta}&api_key=zaneru-official

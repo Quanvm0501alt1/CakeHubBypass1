@@ -1,0 +1,4 @@
+https://xkeypass-api.onrender.com/api/bypass?link={your-link/url}&apikey={your-api-key}
+https://xkeypass-api.onrender.com/api/adlinks?url={your-link/url}&apikey={your-api-key}
+https://xkeypass-api.onrender.com/api/supported
+(TRIGON BYPASS CURRENTLY BROKEN)
