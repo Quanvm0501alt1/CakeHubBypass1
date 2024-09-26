@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Cake bypass Python scripts
 # import requests
 import urllib.request
