@@ -6,7 +6,9 @@ How to use:
 1. Go to https://python.org to install Python
 2. Go to https://git-scm.com/ to install Git
 3. Open CMD and go to the directory you want to use
-4. Use **`git clone -b prototype https://github.com/Quanvm0501alt1/CakeBypass1.git`** to clone this repo in prototype branch
-5. use python prototype[latest version].py to run it!
-6. Enjoy!
+4. Use **`git clone -b dev_build https://github.com/Quanvm0501alt1/CakeBypass1.git`** to clone this repo in prototype branch
+5. go to `cd dev_build`
+6. use python dev_buildv[version][version_date].py to run it!
+![pictures](https://github.com/user-attachments/assets/dc8476fa-7b22-447b-9dff-5bc9e02646a1)
 
+7. Enjoy!
