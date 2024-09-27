@@ -1,0 +1,5 @@
+Bypass api
+http://37.114.41.51:6126/v2/bypass/?link=
+
+Supported
+http://37.114.41.51:6126/v2/supported/
