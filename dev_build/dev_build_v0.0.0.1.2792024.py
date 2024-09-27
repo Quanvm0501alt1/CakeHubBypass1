@@ -99,12 +99,12 @@ def change_apis(is_developer):
 	2: Bypass.vip API
 	3: Zaneru Bypass API
 	4: Prince API
-	5: Cryzo (Comming Soon)
-	6: XKeyPass (Comming Soon)
+	5: XKeyPass (Comming Soon)
+	6: Cryzo (Comming Soon)
 	""")
 	api = int(input("Type API: "))
-	if api == 5 or api == 6:
-		if is_developer == False:
+	if api not in [0,1,2,3,4,5,6]:
+		if api in [5,6] and not is_developer:
 			print("You are not a developer!")
 		else:
 			return api
@@ -287,6 +287,22 @@ def cryzo(mode ,link):
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
 
+def xkeypass(apikey, mode, link):
+	if mode == 1:
+		url = f"https://xkeypass-api.onrender.com/api/bypass?link={link}&apikey={apikey}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+	elif mode == 2:
+		url = f"https://xkeypass-api.onrender.com/api/adlinks?url={link}&apikey={apikey}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			print("Key:",dictionary['key'])
+
 def bypass(api, mode, link):
 	if api == 0:
 		duck(mode, link)
@@ -298,6 +314,9 @@ def bypass(api, mode, link):
 		zaneru(mode, link)
 	elif api == 4:
 		prince(mode,link)
+	elif api == 5:
+		apikey = input("Type XKeyPass API Key (https://discord.gg/TPgZgYpNAS): ")
+		xkeypass(apikey,mode,link)
 
 def built_in_bypass():
 	dev_dict = is_developer(input("Type your developer key: "))
