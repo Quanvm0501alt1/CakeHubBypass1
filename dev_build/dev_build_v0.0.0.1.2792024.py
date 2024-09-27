@@ -107,7 +107,7 @@ def change_apis(is_developer):
 		if api in [5,6] and not is_developer:
 			print("You are not a developer!")
 		else:
-			return api
+			raise Error("Opps! Invaild API!")
 	else:
 		return api
 
