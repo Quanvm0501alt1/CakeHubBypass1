@@ -86,10 +86,23 @@ def str_return_mode(api):
 		1: Bypass Link
 		0: Change API""")
 	mode = int(input("Type mode: "))
+	wrong_mode = False
 	if mode == 0:
 		return 0
 	else:
-		return mode
+		if {
+		(api == 0 and api not in [1,2,3]) or
+		(api == 1 and api not in [1,2,3,4,5,6,7]) or
+		(api == 2 and api not in [1]) or
+		(api == 3 and api not in [1,2,3]) or
+		(api == 4 and api not in [1,2,3,4,5,6,7]) or
+		(api == 5 and api not in [1,2,3,4,5,6,7])
+		}:
+			wrong_mode = True
+		if wrong_mode:
+			print("Opps! Invaild Mode!")
+		else:
+			return mode
 
 
 def change_apis(is_developer):
@@ -106,8 +119,10 @@ def change_apis(is_developer):
 	if api not in [0,1,2,3,4,5,6]:
 		if api in [5,6] and not is_developer:
 			print("You are not a developer!")
+			return
 		else:
-			raise Error("Opps! Invaild API!")
+			print("Opps! Invaild API!")
+			return
 	else:
 		return api
 
