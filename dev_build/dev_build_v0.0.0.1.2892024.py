@@ -95,18 +95,20 @@ def str_return_mode(api):
 	if mode == 0:
 		return 0
 	else:
-		print(wrong_mode)
-		if {
-		(api == 0 and mode not in [1,2,3]) or
-		(api == 1 and mode not in [1,2,3,4,5,6,7]) or
-		(api == 2 and mode not in [1]) or
-		(api == 3 and mode not in [1,2,3]) or
-		(api == 4 and mode not in [1,2,3,4,5,6,7]) or
-		(api == 5 and mode not in [1,2,3,4,5,6,7]) or
-		(api == 6 and mode not in [1,2])
-		}:
+		if (api == 0 and mode not in [1,2,3]):
 			wrong_mode = True
-			print(wrong_mode)
+		elif (api == 1 and mode not in [1,2,3,4,5,6,7]):
+			wrong_mode = True
+		elif (api == 2 and mode not in [1]):
+			wrong_mode = True
+		elif (api == 3 and mode not in [1,2,3]):
+			wrong_mode = True
+		elif (api == 4 and mode not in [1,2,3,4,5,6,7]):
+			wrong_mode = True
+		elif (api == 5 and mode not in [1,2,3,4,5,6,7]):
+			wrong_mode = True
+		elif (api == 6 and mode not in [1,2]):
+			wrong_mode = True
 		if wrong_mode == True:
 			print("Opps! Invaild Mode!")
 		else:
@@ -125,7 +127,7 @@ def change_apis(is_developer):
 	""")
 	api = int(input("Type API: "))
 	if api not in [0,1,2,3,4,5,6]:
-		if api in [5,6] and not is_developer:
+		if api == 6 and is_developer == False:
 			print("You are not a developer!")
 			return
 		else:
@@ -325,8 +327,9 @@ def xkeypass(apikey, mode, link):
 			# Decode bytes to string and remove the leading 'b' character
 			dick = html.decode('utf-8').replace('b', '', 1)
 			print("Key:",dictionary['key'])
+	# Error: Cannot bypass: returned 
 
-def bypass(api, mode, link):
+def bypass(api, mode, link, apikey=""):
 	if api == 0:
 		duck(mode, link)
 	elif api == 1:
@@ -338,7 +341,6 @@ def bypass(api, mode, link):
 	elif api == 4:
 		prince(mode,link)
 	elif api == 5:
-		apikey = input("Type XKeyPass API Key (https://discord.gg/TPgZgYpNAS): ")
 		xkeypass(apikey,mode,link)
 
 def built_in_bypass():
@@ -350,6 +352,9 @@ def built_in_bypass():
 			api = change_apis(dev_dict["is_developer"])
 		if mode != 0:
 			break
+	apikey = ""
+	if api == 6:
+		apikey = input("Type XKeyPass API Key (https://discord.gg/TPgZgYpNAS): ")
 	try:
 		link = input("Type link: ")
 		if len(link) == 0:
@@ -359,7 +364,7 @@ def built_in_bypass():
 	except Exception as e:
 		print(e)
 	else:
-		bypass(api, mode,link)
+		bypass(api, mode, link, apikey)
 	return
 def main():
 	built_in_bypass()
