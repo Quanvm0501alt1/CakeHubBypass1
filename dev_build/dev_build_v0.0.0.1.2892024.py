@@ -85,21 +85,29 @@ def str_return_mode(api):
 		print("""
 		1: Bypass Link
 		0: Change API""")
+	elif api == 6:
+		print("""
+		1: Bypass Roblox link
+		2: Adlink
+		0: Change API""")
 	mode = int(input("Type mode: "))
 	wrong_mode = False
 	if mode == 0:
 		return 0
 	else:
+		print(wrong_mode)
 		if {
-		(api == 0 and api not in [1,2,3]) or
-		(api == 1 and api not in [1,2,3,4,5,6,7]) or
-		(api == 2 and api not in [1]) or
-		(api == 3 and api not in [1,2,3]) or
-		(api == 4 and api not in [1,2,3,4,5,6,7]) or
-		(api == 5 and api not in [1,2,3,4,5,6,7])
+		(api == 0 and mode not in [1,2,3]) or
+		(api == 1 and mode not in [1,2,3,4,5,6,7]) or
+		(api == 2 and mode not in [1]) or
+		(api == 3 and mode not in [1,2,3]) or
+		(api == 4 and mode not in [1,2,3,4,5,6,7]) or
+		(api == 5 and mode not in [1,2,3,4,5,6,7]) or
+		(api == 6 and mode not in [1,2])
 		}:
 			wrong_mode = True
-		if wrong_mode:
+			print(wrong_mode)
+		if wrong_mode == True:
 			print("Opps! Invaild Mode!")
 		else:
 			return mode
