@@ -1,8 +1,8 @@
 # Cake bypass Python scripts
 # import requests
 import urllib.request
-import json
-import base64
+import json, base64, os
+
 class Error(Exception):
 	"""docstring for Error"""
 	pass
@@ -151,7 +151,7 @@ def change_apis(is_developer):
 
 def duck(mode, link):
 	if mode == 1:
-		url = f'https://duckcute-zeta.vercel.app/fluxus?link={link}'
+		url = f"https://ducktestflu.vercel.app/api/fluxus?url={link}"
 		with urllib.request.urlopen(url) as response:
 			html = response.read()
 			# Decode bytes to string and remove the leading 'b' character
@@ -448,6 +448,7 @@ def built_in_bypass():
 		print(e)
 	else:
 		print("Key:", bypass(api, mode, link, apikey))
+	os.system("pause")
 	return
 def main():
 	built_in_bypass()
