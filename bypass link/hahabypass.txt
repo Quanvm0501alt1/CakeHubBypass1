@@ -1,0 +1,24 @@
+## FREE API:
+
+**Website:**
+https://hahabypasser-api.vercel.app
+
+**Supported:**
+https://hahabypasser-api.vercel.app/supported
+
+**API BYPASS:**
+https://hahabypasser-api.vercel.app/bypass?link=
+
+**API FLUXUS BYPASS:**
+https://fluxus-bypass-orcin.vercel.app/api/fluxus?link=
+
+**API CODEX BYPASS:**
+https://codex-lemon-nu.vercel.app/api/codex?link={your_link} **[Codex bypass]**
+
+**NEW API CODEX BYPASS:**
+http://37.114.46.140:6124/api/codex?link=
+
+Btw,Codex api still host
+# ===============
+## Users: ron12373
+## FREE API:

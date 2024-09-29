@@ -1,8 +1,0 @@
-
-https://stickx.top/api-fluxus/?hwid={hwid}&api_key=E99l9NOctud3vmu6bPne
-https://stickx.top/api-delta/?hwid={hwid}&api_key=tUnAZj3sS74DJo9BUb8tshpVhpLJLA 🟡 
-https://stickx.top/api-hydrogen/?hwid={hwid}&api_key=E99l9NOctud3vmu6bPne 🟡 
-https://stickx.top/api-linkvertise/?link={link}&api_key=E99l9NOctud3vmu6bPne
-https://stickx.top/api-arceusx/?hwid={link}&api_key=tUnAZj3sS74DJo9BUb8tshpVhpLJLA 
-https://stickx.top/api-codex/?token={token}&api_key=tUnAZj3sS74DJo9BUb8tshpVhpLJLA 
-https://stickx.top/api-vegax/?hwid={hwid}&api_key=tUnAZj3sS74DJo9BUb8tshpVhpLJLA

@@ -1,0 +1,4 @@
+https://fluxusbypassxyz.vercel.app/api/fluxus?link=
+https://fluxusbypassxyz.vercel.app/
+https://fluxusbypassxyz.vercel.app/api/delta?link=
+https://fluxusbypassxyz.vercel.app/api/supported
