@@ -93,12 +93,12 @@ def str_return_mode(api):
 		0: Change API""")
 	elif api == 7:
 		print("""
-		1: Fluxus
-		2: MBoost
-		3: PasteDrop
-		4: MediaFire
-		5: RelzHub
-		6: Delta
+		1: Bypass all Links
+		0: Change API""")
+	elif api == 8:
+		print("""
+		1: Bypass all Links (Except ArceusX)
+		2: ArceusX
 		0: Change API""")
 	mode = int(input("Type mode: "))
 	wrong_mode = False
@@ -121,6 +121,8 @@ def str_return_mode(api):
 			wrong_mode = True
 		elif (api == 7 and mode not in [1,2,3,4,5,6]):
 			wrong_mode = True
+		elif (api == 8 and mode not in [1,2]):
+			wrong_mode = True
 		if wrong_mode == True:
 			print("Opps! Invaild Mode!")
 		else:
@@ -135,9 +137,9 @@ def change_apis(is_developer):
 	3: Zaneru Bypass API
 	4: Prince API
 	5: Cryzo
-	6: XKeyPass (Fixing :( )
+	6: XKeyPass (Comming Soon)
 	7: Demon
-	8: 
+	8: Triple Scripts Server (TSS)
 	""")
 	api = int(input("Type API: "))
 	if api not in [0,1,2,3,4,5,6,7]:
@@ -359,47 +361,7 @@ def xkeypass(apikey, mode, link):
 
 def demon(mode, link):
 	if mode == 1:
-		url = f"https://keybypass.vercel.app/api/fluxus?url={link}"
-		with urllib.request.urlopen(url) as response:
-			html = response.read()
-			# Decode bytes to string and remove the leading 'b' character
-			dick = html.decode('utf-8').replace('b', '', 1)
-			dictionary = json.loads(dick)
-			return dictionary['key']
-	elif mode == 2:
-		url = f"https://keybypass.vercel.app/api/mboost?url={link}"
-		with urllib.request.urlopen(url) as response:
-			html = response.read()
-			# Decode bytes to string and remove the leading 'b' character
-			dick = html.decode('utf-8').replace('b', '', 1)
-			dictionary = json.loads(dick)
-			return dictionary['key']
-	elif mode == 3:
-		url = f"https://keybypass.vercel.app/api/paste_drop?url={link}"
-		with urllib.request.urlopen(url) as response:
-			html = response.read()
-			# Decode bytes to string and remove the leading 'b' character
-			dick = html.decode('utf-8').replace('b', '', 1)
-			dictionary = json.loads(dick)
-			return dictionary['key']
-	elif mode == 4:
-		url = f"https://keybypass.vercel.app/api/mediafire?url={link}"
-		with urllib.request.urlopen(url) as response:
-			html = response.read()
-			# Decode bytes to string and remove the leading 'b' character
-			dick = html.decode('utf-8').replace('b', '', 1)
-			dictionary = json.loads(dick)
-			return dictionary['key']
-	elif mode == 5:
-		url = f"https://keybypass.vercel.app/api/relzhub?url={link}"
-		with urllib.request.urlopen(url) as response:
-			html = response.read()
-			# Decode bytes to string and remove the leading 'b' character
-			dick = html.decode('utf-8').replace('b', '', 1)
-			dictionary = json.loads(dick)
-			return dictionary['key']
-	elif mode == 6:
-		url = f"hhttps://keybypass.vercel.app/api/stats{link}"
+		url = f"https://bypass-all.vercel.app/bypass?url=URL_HERE&apikey=DemonOnTop"
 		with urllib.request.urlopen(url) as response:
 			html = response.read()
 			# Decode bytes to string and remove the leading 'b' character
@@ -407,6 +369,23 @@ def demon(mode, link):
 			dictionary = json.loads(dick)
 			return dictionary['key']
 
+def tss(mode, link):
+	if mode == 1:
+		url = f"https://kazi-api.vercel.app/api/bypass?link={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+	elif mode == 2:
+		url = f"https://kazi-api.vercel.app/api/arceusx?link=&apikey=Kagi_0H9BP72"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
 
 def bypass(api, mode, link, apikey=""):
 	key = None
@@ -426,6 +405,8 @@ def bypass(api, mode, link, apikey=""):
 		key = xkeypass(apikey,mode,link)
 	elif api == 7:
 		key = demon(mode, link)
+	elif key == 8:
+		key = tss(mode, link)
 	return key
 
 def built_in_bypass():
