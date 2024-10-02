@@ -1,3 +1,5 @@
+https://kazi-api.vercel.app/api/supported
+
 All bypass don't sup Arceusx 
 
 https://kazi-api.vercel.app/api/bypass?link=

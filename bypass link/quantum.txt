@@ -1,0 +1,1 @@
+https://quantum-onyx-api.vercel.app/QuantumBypass?link={link}&QuantumKey=QuantumOnyxKEY-32fdahyf32y3eqe9
