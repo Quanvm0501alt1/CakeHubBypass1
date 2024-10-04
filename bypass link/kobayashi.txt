@@ -21,5 +21,5 @@ https://hatsuneee-pastedrop.vercel.app/api/paste?url=
 https://hatsuneee-mediafire.vercel.app/api/mediafire?url=
 :hatsunefireblue: SocialWolvez :
 https://hatsuneee-socialwolvez.vercel.app/socialwolvez?url=
-Hình ảnh
-Requested by vmquanalt1 | Made By Xynnnn 私 | 29-09-2024 06:31:11
+
+New: https://kobayashi-heart-attack.vercel.app/api/kobayashi?url={link}&kobayashi=NoHome
