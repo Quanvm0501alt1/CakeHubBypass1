@@ -57,7 +57,7 @@ def str_return_mode(api):
 		3: Hydrogen (fixing by dev) (can test)
 		4: Linkvertise
 		5: Arceus X
-		6: Code X
+		6: CodeX
 		7: Vega X
 		0: Change API
 		""")
@@ -74,7 +74,7 @@ def str_return_mode(api):
 	elif api == 4:
 		print("""
 		1: Fluxus
-		2: Code X
+		2: CodeX
 		3: Delta
 		4: Work.ink
 		5: Rekonise
@@ -113,7 +113,23 @@ def str_return_mode(api):
 	elif api == 10:
 		print("""
 		1: Fluxus
-		2: CodeX""")
+		2: CodeX
+		0: Change API""")
+	elif api == 11:
+		print("""
+		1: All links
+		0: Change API""")
+	elif api == 12:
+		print("""
+		1: Delta, Fluxus, Trigon, Cryptic
+		0: Change API""")
+	elif api == 13:
+		print("""
+		1: Fluxus
+		2: Linkvertive
+		3: Rekonise
+		4: Delta
+		0: Change API""")
 	mode = int(input("Type mode: "))
 	wrong_mode = False
 	if mode == 0:
@@ -141,7 +157,10 @@ def str_return_mode(api):
 			wrong_mode = True
 		elif (api == 10 and api not in [1,2]):
 			wrong_mode = True
-
+		elif (api == 11 and api not in [1]):
+			wrong_mode = True
+		elif (api == 12 and api not in [1]):
+			wrong_mode = True
 
 		if wrong_mode == True:
 			print("Opps! Invaild Mode!")
@@ -157,20 +176,26 @@ def change_apis(is_developer):
 	3: Zaneru Bypass API
 	4: Prince API
 	5: Cryzo
-	6: Nexus API (NEW)
+	6: Nexus API (Moved)
 	7: Demon
 	8: Triple Scripts Server (TSS)
 	9: XTR Bypass
 	10: HaHa bypass (Comming Soon)
+	11: Kobayashi Bypass
+	12: NEW Nexus API
+	13: NrzXHaxRBLX Bypass City™ API
 	""")
 	api = int(input("Type API: "))
-	if api == 10 and is_developer == False:
+	if api == 13 and is_developer == False:
 		print("You are not a developer!")
 		return
 	if api not in [0,1,2,3,4,5,6,7,8,9,10]:
 		print("Opps! Invaild API!")
 		return
 	else:
+		if api == 6:
+			print("THIS API IS MOVED!, YOU MUST USE THE API 12 BEFORE WE MOVE TO API 6")
+			return
 		return api
 
 def duck(mode, link):
@@ -361,7 +386,8 @@ def cryzo(mode ,link):
 			dictionary = json.loads(dick)
 			return dictionary['key']
 
-def nexus(apikey, mode, link):
+def nexus(mode, link):
+	apikey = "" # TEMPOARY PLACE THIS TO PREVENT ERROR
 	if mode == 1:
 		url = f"https://nexusapi-qg8a.onrender.com/api/bypass?link={link}&apikey={apikey}"
 		with urllib.request.urlopen(url) as response:
@@ -483,7 +509,100 @@ def hahabypass(mode, link):
 			dictionary = json.loads(dick)
 			return dictionary['key']
 
-def bypass(api, mode, link, apikey=""):
+def kobayashi_old(mode, link):
+	"""
+	CUURENTLY NOT WORKING, MOVED TO NEW API
+	:developer~2:  Developer By Xynnnn 私
+	:hatsunefireblue:  Free API :
+	https://kobayashi-own.vercel.app/api/kobayashi?url=
+	:hatsuneupdate:  Supported :
+
+	Fluxus, Relzhub, Delta, Codex, Rekonise, Mboost, Socialwolvez, Nicuse, Lootlabs, Linkvertise ( all domain ), Linkvertise Dynamic, Work.ink, Paste-Drop, Mediafire
+
+	:hatsunefireblue: Fluxus :
+	https://hatsuneee-fluxus.vercel.app/api/fluxus?url=
+	:hatsunefireblue: Relzhub :
+	https://hatsuneee-relzhub-ebon.vercel.app/relz?url=
+	:hatsunefireblue: Delta :
+	https://hatsuneee-delta.vercel.app/api/delta?url=
+	:hatsunefireblue: Rekonise:
+	https://hatsuneee-rekonise.vercel.app/rekonise?url=
+	:hatsunefireblue: Mboost :
+	https://hatsuneee-mboost.vercel.app/mboost?url=
+	:hatsunefireblue: Paste Drop :
+	https://hatsuneee-pastedrop.vercel.app/api/paste?url=
+	:hatsunefireblue: MediaFire :
+	https://hatsuneee-mediafire.vercel.app/api/mediafire?url=
+	:hatsunefireblue: SocialWolvez :
+	https://hatsuneee-socialwolvez.vercel.app/socialwolvez?url=
+	"""
+	pass
+
+def kobayashi(mode,link):
+	if mode == 1:
+		url = f"https://kobayashi-heart-attack.vercel.app/api/kobayashi?url={link}&kobayashi=NoHome"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+
+def quantum(mode,link):
+	if mode == 1:
+		url = f"https://quantum-onyx-api.vercel.app/QuantumBypass?link={link}&QuantumKey=QuantumOnyxKEY-32fdahyf32y3eqe9"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+
+def new_nexus(mode, link):
+	if mode == 1:
+		url = f"http://fi4.bot-hosting.net:22869/executor?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+
+def NrzXHaxRBLX_Bypass_City(mode, link):
+	if mode == 1:
+		url = f"https://robloxexecutorth-api.vercel.app/fluxus?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+	elif mode == 2:
+		url = f"https://robloxexecutorth-api.vercel.app/linkvertise?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+	elif mode == 3:
+		url = f"hhttps://robloxexecutorth-api.vercel.app/rekonise?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+	elif mode == 4:
+		url = f"https://robloxexecutorth-api.vercel.app/delta?url={link}"
+		with urllib.request.urlopen(url) as response:
+			html = response.read()
+			# Decode bytes to string and remove the leading 'b' character
+			dick = html.decode('utf-8').replace('b', '', 1)
+			dictionary = json.loads(dick)
+			return dictionary['key']
+
+def bypass(api, mode, link):
 	key = None
 	if api == 0:
 		key = duck(mode, link)
@@ -498,13 +617,19 @@ def bypass(api, mode, link, apikey=""):
 	elif api == 5:
 		key = cryzo(mode, link)
 	elif api == 6:
-		key = nexus(apikey,mode,link)
+		key = nexus(mode,link)
 	elif api == 7:
 		key = demon(mode, link)
 	elif api == 8:
 		key = tss(mode, link)
 	elif api == 9:
 		key = xtr(mode, link)
+	elif api == 10:
+		key = hahabypass(mode, link)
+	elif api == 11:
+		key = kobayashi(mode, link)
+	elif api == 12:
+		key = new_nexus(mode, link)
 	return key
 
 def built_in_bypass():
@@ -518,11 +643,7 @@ def built_in_bypass():
 			api = change_apis(dev_dict["is_developer"])
 		if mode != 0:
 			break
-	apikey = ""
-	if api == 6:
-		apikey = input("Type Nexus API Key (https://discord.gg/TPgZgYpNAS): ")
-		if apikey == "":
-			print("You MUST input API key!")
+
 	try:
 		link = input("Type link: ")
 		if len(link) == 0:
