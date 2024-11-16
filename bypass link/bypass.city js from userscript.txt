@@ -1,0 +1,161 @@
+https://api2.adbypass.org/userscript/download/bypass.user.js
+
+ChatGPT ver 2.0 converted from userscript
+
+// Helper functions to replace GM_* userscript functions
+const UserScript = {
+  getValue: (key, defaultValue) => {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : defaultValue;
+  },
+  setValue: (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+  deleteValue: (key) => {
+    localStorage.removeItem(key);
+  },
+  addStyle: (css) => {
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  },
+  xmlHttpRequest: async (details) => {
+    try {
+      const response = await fetch(details.url, {
+        method: details.method,
+        headers: details.headers,
+        body: details.data,
+      });
+      const text = await response.text();
+      return { responseText: text };
+    } catch (e) {
+      console.error('Request failed:', e);
+      return { responseText: null };
+    }
+  },
+};
+
+// Configuration
+const config = {
+  version: "13.0.0",
+  buildTime: "9/2/2024, 5:23:50 AM",
+  branch: "release",
+  release: "bfe0633",
+  installed: true,
+  releaseTag: "13.0.0 (bfe0633)",
+};
+
+// Utility functions
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Fetch utility
+const jsonFetch = async (url, options) => {
+  try {
+    const response = await fetch(url, {
+      method: options.method,
+      headers: options.headers,
+      body: options.data ? JSON.stringify(options.data) : undefined,
+    });
+    return await response.json();
+  } catch (e) {
+    console.error("Fetch error:", e);
+    return null;
+  }
+};
+
+// Bypass city listener
+const bypassCityListener = async () => {
+  if (window.location.hostname !== "bypass.city" && window.location.hostname !== "localhost" && window.location.hostname !== "adbypass.org") {
+    return;
+  }
+  injectScriptInfo();
+  sendUserscriptInfoEvent();
+  window.addEventListener("bypassComplete", async (event) => {
+    const data = event.detail;
+    console.log("bypassMessage", data);
+    UserScript.deleteValue("bypass.data");
+    await sleep(1);
+    UserScript.setValue("bypass.data", data);
+    window.location.href = "https://linkvertise.com/";
+  });
+};
+
+const injectScriptInfo = () => {
+  const injectJs = `window.scriptInfo = JSON.parse('${JSON.stringify(config)}')`;
+  const script = document.createElement("script");
+  script.textContent = injectJs;
+  document.body.appendChild(script);
+};
+
+const sendUserscriptInfoEvent = () => {
+  const event = new CustomEvent("userScriptInfo", { detail: config });
+  window.dispatchEvent(event);
+};
+
+// Notifications
+const setupNotifications = () => {
+  const style = document.createElement("style");
+  style.textContent = `.notification { background-color: #25262b; color: white; padding: 10px; margin: 10px; }`;
+  document.head.appendChild(style);
+  const tray = document.createElement("div");
+  tray.id = "bypass-tray";
+  document.body.appendChild(tray);
+};
+
+const notify = (message) => {
+  if (!document.getElementById("bypass-tray")) {
+    setupNotifications();
+  }
+  const notification = document.createElement("div");
+  notification.className = "notification";
+  notification.innerText = message;
+  document.getElementById("bypass-tray").appendChild(notification);
+};
+
+// Ping function
+const ping = async () => {
+  const data = await jsonFetch("https://bypass.city/.well-known/ping.json", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  return data ? data.ping : false;
+};
+
+// Linkvertise bypass
+const linkvertiseListener = async () => {
+  if (!matchLinkvertise(window.location.href)) return;
+
+  const bypassData = UserScript.getValue("bypass.data");
+  if (bypassData) {
+    notify("Bypass in progress...");
+    await sleep(2000);
+    const targetUrl = bypassData.bypassData;
+    UserScript.deleteValue("bypass.data");
+    await sleep(1);
+    window.location.href = targetUrl;
+  } else if (!/https?:\/\/linkvertise\.com\/?$/.test(window.location.href)) {
+    let redirectBase = "https://bypass.city";
+    const isPing = await ping();
+    if (!isPing) redirectBase = "https://adbypass.org";
+
+    notify("Redirecting...");
+    UserScript.deleteValue("bypass.data");
+    const bypassCityUrl = new URL(`${redirectBase}/bypass`);
+    bypassCityUrl.searchParams.set("bypass", window.location.href);
+    bypassCityUrl.searchParams.set("userscript", "true");
+    bypassCityUrl.searchParams.set("userscript-version", config.version);
+    window.location.href = bypassCityUrl.href;
+  }
+};
+
+const matchLinkvertise = (url) => {
+  const regex = /^https?:\/\/(linkvertise\.(com|download)|(link-(center|target|hub|to)|direct-link|file-link)\.net)/i;
+  return regex.test(url) && !url.startsWith("https://linkvertise.com/profile") && !url.startsWith("https://linkvertise.com/login");
+};
+
+// Main function
+(async () => {
+  console.info("Linkvertise Bypasser", config.version, window.location.href);
+  await bypassCityListener();
+  await linkvertiseListener();
+})();
