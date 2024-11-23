@@ -1,7 +1,7 @@
 # Cake bypass Python scripts
 # import requests
 import urllib.request
-import json, base64, os
+import json, os
 
 class Error(Exception):
 	"""docstring for Error"""
