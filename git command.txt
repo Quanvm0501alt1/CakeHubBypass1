@@ -1,1 +1,2 @@
 git push -u https://github.com/Quanvm0501alt1/CakeHubBypass1.git dev_build
+git fetch && git pull && git add . && git commit && git push -u https://github.com/Quanvm0501alt1/CakeHubBypass1.git dev_build
